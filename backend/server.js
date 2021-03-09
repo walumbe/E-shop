@@ -17,7 +17,10 @@ mongoose.connect(process.env.MONGODB_URL || 'mongodb://localhost/amazona', {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
-});
+})
+.then(()=> console.log("Db connected"))
+.catch(err => console.error(err));
+
 app.use('/api/uploads', uploadRouter);
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
