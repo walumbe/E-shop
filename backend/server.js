@@ -13,7 +13,7 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-mongoose.connect(process.env.MONGODB_URL , {
+mongoose.connect(process.env.MONGODB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useCreateIndex: true,
@@ -21,7 +21,7 @@ mongoose.connect(process.env.MONGODB_URL , {
 .then(()=> console.log("Db connected"))
 .catch(err => console.error(err));
 
-app.use('/api/uploads', uploadRouter);
+app.use('/api/uploads', uploadRouter); 
 app.use('/api/users', userRouter);
 app.use('/api/products', productRouter);
 app.use('/api/orders', orderRouter);
